@@ -1,0 +1,51 @@
+{
+  "name": "win12-desktop",
+  "version": "7.0.0",
+  "description": "An Offline Version of Win12 Web on MacOS",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder build --mac"
+  },
+  "author": "Iewnfod",
+  "license": "EPL-2.0",
+  "devDependencies": {
+    "electron": "^25.5.0",
+    "electron-builder": "^24.6.3"
+  },
+  "build": {
+    "appId": "com.iewnfod.win12",
+    "productName": "Win12 Desktop",
+    "directories": {
+      "output": "./dist"
+    },
+    "mac": {
+      "icon": "assets/logo.icns"
+    },
+    "files": [
+      "index.js",
+      "index.html",
+      "win12/**/*",
+      "node_modules/**/*"
+    ],
+    "dmg": {
+      "window": {
+        "x": 200,
+        "y": 100
+      },
+      "contents": [
+        {
+          "x": 130,
+          "y": 150
+        },
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  }
+}
