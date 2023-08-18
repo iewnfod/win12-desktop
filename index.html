@@ -7,12 +7,34 @@
     <style>
         body {
             background-color: black;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow-y: hidden;
+        }
+        .frame_box {
+            margin: 0;
+            padding: 0;
+            left: 0;
+            top: 0;
+            border: 0;
         }
     </style>
+    <script>
+        function resize() {
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let frame = document.querySelector('.frame_box');
+            frame.style.width = width + 'px';
+            frame.style.height = height + 'px';
+        }
+    </script>
 </head>
 <body>
+    <iframe src="win12/desktop.html" class="frame_box"></iframe>
     <script>
-        window.location.href = 'win12/desktop.html';
+        window.onresize = resize;
+        resize();
     </script>
 </body>
 </html>
