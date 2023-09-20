@@ -4,11 +4,13 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: 1200,
         height: 800,
+        minWidth: 800,
+        minHeight: 600,
+        fullscreen: true,
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false,
         },
-        fullscreen: true,
     });
 
     protocol.interceptFileProtocol('file', (request, callback) => {
@@ -17,11 +19,11 @@ const createWindow = () => {
         // 如果是字体文件，也就是以 woff / woff2 结尾
         // 把问号后面的东西都去掉，也就是去掉参数
         if (url[0].endsWith('.woff') || url[0].endsWith('.woff2')) {
-            console.log(`file:///${url[0]}`);
+            // console.log(`file:///${url[0]}`);
             callback(decodeURI(url[0]));
         } else {
             // 否则返回正常的完整字符串
-            console.log(`file:///${url.join('?')}`);
+            // console.log(`file:///${url.join('?')}`);
             callback(decodeURI(url.join('?')));
         }
     }, (error) => {

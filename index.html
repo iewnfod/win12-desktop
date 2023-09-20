@@ -11,6 +11,7 @@
             height: 100%;
             margin: 0;
             overflow-y: hidden;
+            cursor: none !important;
         }
         .frame_box {
             margin: 0;
@@ -22,16 +23,14 @@
     </style>
     <script>
         function resize() {
-            let width = window.innerWidth;
-            let height = window.innerHeight;
             let frame = document.querySelector('.frame_box');
-            frame.style.width = width + 'px';
-            frame.style.height = height + 'px';
+            frame.style.width = window.innerWidth + 'px';
+            frame.style.height = window.innerHeight + 'px';
         }
     </script>
 </head>
 <body>
-    <iframe src="win12/desktop.html" class="frame_box"></iframe>
+    <iframe src="win12/boot.html" class="frame_box"></iframe>
     <script>
         window.onresize = resize;
         resize();
